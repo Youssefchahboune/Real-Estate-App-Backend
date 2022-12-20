@@ -13,3 +13,5 @@ public class UpdatePropertyRequest {
     @NotEmpty
     private String status;
 }
+
+//test
