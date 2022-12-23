@@ -4,12 +4,16 @@
 This section will provide a detailed breakdown of each folder and explain the structure of the classes contained within each folder. It will cover the purpose and functions of each class, as well as any relationships or dependencies with other classes.
 
 ## Controller folder
+The PropertyController class is located within this folder and is responsible for handling incoming HTTP requests and returning the appropriate response. This class includes methods, known as "actions," that correspond to different HTTP verbs (e.g., GET, POST, PUT, PATCH, DELETE) and are used to handle requests for specific resources or operations. These actions are defined by their respective endpoints, which specify the location of the resource or operation being requested. The PropertyController class is used to provide a logical interface between the client and the server, allowing the client to request specific resources or operations and receive a response in a standardized format.
 
 ## Entity folder
+The folder contains two classes, the Seller and Property classes. Both classes are marked with the @Entity annotation, which indicates that they are entities. The Seller class has a set of properties and a constructor, and the Property class has a similar set of properties, including a field called "seller" of type Seller that references a Seller object also the seller field inside the Property class is marked with the @ManyToOne annotation, which indicates that many properties can be associated with a single Seller. The Property class also has a constructor. Both the Seller and Property classes are used to store and manipulate data within the application.
 
 ## Exception folder
+The folder contains two classes, "KeyDoesNotMatch" and "RessourceNotFound," which both extend the RuntimeException class. The KeyDoesNotMatch exception is thrown when someone tries to update or delete a property using a key that does not match the actual key associated with the property's seller. This exception returns a 401 status code, indicating that the access is unauthorized. The RessourceNotFound exception is thrown when the ID of the property cannot be found in the database. This exception returns a 404 status code, indicating that the requested resource was not found. These exceptions are used to handle errors and provide appropriate responses to the client in the event of unauthorized access or missing data.
 
 ## Repository folder
+The folder contains two interfaces, "PropertyRepository" and "SellerRepository," which both extend from the CrudRepository interface. When extending this interface, the type of the entity and the type of the primary key must be specified. These interfaces are responsible for managing the persistence of data and the interactions with the database. They provide a set of methods for performing CRUD operations on the data, such as creating, reading, updating, and deleting records. The PropertyRepository and SellerRepository interfaces will be used by the service class, which is located in the Service folder, to perform data access tasks.
 
 ## Request folder
 
